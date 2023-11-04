@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+    <script
+      defer
+      src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <title>Misreports</title>
+  </head>
+  <body>
+    <div class="container">
+      <h4 class="text-center text-white bg-primary p-2 rounded">
+        BN FUTURES & OPTIONS DATA FOR ANALYSING
+      </h4>
+      <div class="d-flex justify-content-center">
+        <form novalidate>
+          <div class="form-grid">
+            <label for="expDate" class="form-label fw-bold"
+              >Select Exp. Date:</label
+            >
+            <input class="form-control" type="date" id="expDate" required />
+          </div>
+          <div class="form-grid">
+            <label for="fromTrDate" class="form-label fw-bold"
+              >Select Trade Date:</label
+            >
+            <input
+              class="form-control"
+              type="date"
+              id="fromTrDate"
+              placeholder="From Date"
+              required
+            />
+            <input
+              class="form-control"
+              type="date"
+              id="toTrDate"
+              placeholder="To Date"
+              required
+            />
+          </div>
+          <div class="form-grid">
+            <label for="securityName" class="form-label fw-bold"
+              >Select Security Name:</label
+            >
+            <select
+              name="securityName"
+              class="form-select"
+              id="securityName"
+              required
+            >
+              <option value="">--Please choose an option--</option>
+              <option>BANKNIFTY</option>
+              <option>NIFTYFIFTY</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <label for="sector" class="form-label fw-bold"
+              >Select Sector:</label
+            >
+            <select class="form-select" name="sector" id="sector" required>
+              <option value="">--Please choose an option--</option>
+              <option>BANKNIFTY</option>
+              <option>NIFTYFIFTY</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <label for="timeInterval" class="form-label fw-bold"
+              >Time Interval:</label
+            >
+            <select
+              class="form-select"
+              name="timeInterval"
+              id="timeInterval"
+              required
+            >
+              <option value="">--Please choose an option--</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+        } else {
+          window.location = "tabularData.html";
+        }
+      });
+    </script>
+  </body>
+</html>
